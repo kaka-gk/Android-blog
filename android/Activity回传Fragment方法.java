@@ -1,0 +1,11 @@
+
+
+
+ListView 的EmptyView初始化 
+
+当列表初始化的时候，将EmptyView创建出来，添加进ListView中，该时间点会有一个不好的用户体验，就是在给ListView添加数据前，或者网络请求数据未返回前，ListView会隐藏，显示EmptyView，当数据到达并更新ListView后，EmptyView会隐藏，ListView显示，会有一种闪现的效果。不建议在初始化的时间点添加EmptyView.
+设置Adapter 
+该时间点设置EmptyView在部分时候会有相同的显示效果，当Adapter为空就关联ListView会和ListView初始化是一样的，当在数据请求完，设置Adapter时，就可以刚好显示当前的数据情况，这就是第三种时间点。
+监听网络请求返回数据 
+在获取数据之后添加EmptyView可以恰当的反应当前的状态，也是最佳的使用方式。 
+本次将主要介绍其中的一点即ListView的初始化，其他请大家去看源码，最后会发现，原理都是一样的
